@@ -3,10 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const swaggerUi = require('swagger-ui-express');
 
 const { connectDB } = require('./config/database');
-const swaggerSpecs = require('./config/swagger');
 const sessionMiddleware = require('./middleware/session');
 
 const app = express();
@@ -151,44 +149,50 @@ app.use(
   })
 );
 
-// Swagger UI setup
-app.use(
-  '/docs',
-  swaggerUi.serve,
-  swaggerUi.setup(swaggerSpecs, {
-    explorer: true,
-    customCss: `
-      .swagger-ui .topbar { display: none }
-      .swagger-ui .info .title { color: #1976d2 }
-      .server-info { 
-        background: #e3f2fd; 
-        padding: 10px; 
-        border-radius: 5px; 
-        margin: 10px 0;
-        border-left: 4px solid #1976d2;
-      }
-    `,
-    customSiteTitle: 'Rentverse API Documentation',
-    customfavIcon: '/favicon.ico',
-    swaggerOptions: {
-      persistAuthorization: true,
-      servers: [
-        {
-          url:
-            process.env.NGROK_URL ||
-            `http://localhost:${process.env.PORT || 3005}`,
-          description: process.env.NGROK_URL
-            ? `🌐 Ngrok Tunnel: ${process.env.NGROK_URL}`
-            : `🏠 Local Server: http://localhost:${process.env.PORT || 3005}`,
-        },
-        {
-          url: `http://localhost:${process.env.PORT || 3005}`,
-          description: '🏠 Local Development Server',
-        },
-      ],
-    },
-  })
-);
+// Swagger UI setup — make optional to avoid crashing the app when swagger-jsdoc
+// encounters invalid YAML in route JSDoc. Enable by setting ENABLE_SWAGGER=true.
+if (process.env.ENABLE_SWAGGER === 'true') {
+  const swaggerUi = require('swagger-ui-express');
+  const swaggerSpecs = require('./config/swagger');
+
+  app.use(
+    '/docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerSpecs, {
+      explorer: true,
+      customCss: `
+        .swagger-ui .topbar { display: none }
+        .swagger-ui .info .title { color: #1976d2 }
+        .server-info { 
+          background: #e3f2fd; 
+          padding: 10px; 
+          border-radius: 5px; 
+          margin: 10px 0;
+          border-left: 4px solid #1976d2;
+        }
+      `,
+      customSiteTitle: 'Rentverse API Documentation',
+      customfavIcon: '/favicon.ico',
+      swaggerOptions: {
+        persistAuthorization: true,
+        servers: [
+          {
+            url:
+              process.env.NGROK_URL ||
+              `http://localhost:${process.env.PORT || 3005}`,
+            description: process.env.NGROK_URL
+              ? `🌐 Ngrok Tunnel: ${process.env.NGROK_URL}`
+              : `🏠 Local Server: http://localhost:${process.env.PORT || 3005}`,
+          },
+          {
+            url: `http://localhost:${process.env.PORT || 3005}`,
+            description: '🏠 Local Development Server',
+          },
+        ],
+      },
+    })
+  );
+}
 
 // Import routes
 const authRoutes = require('./routes/auth');
