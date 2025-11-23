@@ -6,3 +6,10 @@ coverage
 *.log
 .DS_Store
 prisma/migrations
+uploads/
+*.min.js
+.nyc_output/
+logs/
+Thumbs.db
+templates/
+docs/
