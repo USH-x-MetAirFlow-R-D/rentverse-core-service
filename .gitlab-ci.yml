@@ -12,9 +12,10 @@ stages:
 cache:
   key:
     files:
-      - package-lock.json
+      - pnpm-lock.yaml
   paths:
     - node_modules/
+    - .pnpm-store/
   policy: pull-push
 
 workflow:
@@ -26,11 +27,13 @@ workflow:
 install_dependencies:
   stage: install
   script:
-    - npm ci
+    - npm install -g pnpm
+    - pnpm install --frozen-lockfile
 
 validate_code:
   stage: validate
   needs: [install_dependencies]
   script:
-    - npm run lint
-    - npx prisma generate
+    - npm install -g pnpm
+    - pnpm run lint
+    - pnpm dlx prisma generate
