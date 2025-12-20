@@ -5,6 +5,13 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 
 const { connectDB } = require('./config/database');
+
+// Only load Swagger in non-test environments to avoid YAML parsing issues
+const swaggerSpecs =
+  process.env.NODE_ENV !== 'test' ? require('./config/swagger') : null;
+const swaggerMobileSpecs =
+  process.env.NODE_ENV !== 'test' ? require('./config/swagger-mobile') : null;
+
 const sessionMiddleware = require('./middleware/session');
 
 const app = express();
@@ -149,12 +156,12 @@ app.use(
   })
 );
 
-// Swagger UI setup — make optional to avoid crashing the app when swagger-jsdoc
-// encounters invalid YAML in route JSDoc. Enable by setting ENABLE_SWAGGER=true.
-if (process.env.ENABLE_SWAGGER === 'true') {
-  const swaggerUi = require('swagger-ui-express');
-  const swaggerSpecs = require('./config/swagger');
+// Swagger UI setup (skip in test environment)
+const swaggerUi =
+  process.env.NODE_ENV !== 'test' ? require('swagger-ui-express') : null;
 
+// Swagger UI setup for Web
+if (process.env.NODE_ENV !== 'test' && swaggerSpecs && swaggerUi) {
   app.use(
     '/docs',
     swaggerUi.serve,
@@ -194,6 +201,47 @@ if (process.env.ENABLE_SWAGGER === 'true') {
   );
 }
 
+// Swagger UI setup for Mobile (skip in test environment)
+if (process.env.NODE_ENV !== 'test' && swaggerMobileSpecs) {
+  app.use(
+    '/m/docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerMobileSpecs, {
+      explorer: true,
+      customCss: `
+        .swagger-ui .topbar { display: none }
+        .swagger-ui .info .title { color: #4caf50 }
+        .server-info { 
+          background: #e8f5e9; 
+          padding: 10px; 
+          border-radius: 5px; 
+          margin: 10px 0;
+          border-left: 4px solid #4caf50;
+        }
+      `,
+      customSiteTitle: 'Rentverse Mobile API Documentation',
+      customfavIcon: '/favicon.ico',
+      swaggerOptions: {
+        persistAuthorization: true,
+        servers: [
+          {
+            url:
+              process.env.NGROK_URL ||
+              `http://localhost:${process.env.PORT || 3005}`,
+            description: process.env.NGROK_URL
+              ? `🌐 Ngrok Tunnel: ${process.env.NGROK_URL}`
+              : `🏠 Local Server: http://localhost:${process.env.PORT || 3005}`,
+          },
+          {
+            url: `http://localhost:${process.env.PORT || 3005}`,
+            description: '🏠 Local Development Server',
+          },
+        ],
+      },
+    })
+  );
+}
+
 // Import routes
 const authRoutes = require('./routes/auth');
 const uploadRoutes = require('./routes/upload');
@@ -204,15 +252,21 @@ const propertyTypeRoutes = require('./modules/propertyTypes/propertyTypes.routes
 const amenityRoutes = require('./modules/amenities/amenities.routes');
 const predictionRoutes = require('./modules/predictions/predictions.routes');
 
-// Use routes
-app.use('/api/auth', authRoutes);
-app.use('/api/upload', uploadRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/properties', propertyRoutes);
-app.use('/api/bookings', bookingRoutes);
-app.use('/api/property-types', propertyTypeRoutes);
-app.use('/api/amenities', amenityRoutes);
-app.use('/api/predictions', predictionRoutes);
+// Import mobile routes
+const mobileRoutes = require('./routes/mobile');
+
+// Use routes (Web) - API v1
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/upload', uploadRoutes);
+app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/properties', propertyRoutes);
+app.use('/api/v1/bookings', bookingRoutes);
+app.use('/api/v1/property-types', propertyTypeRoutes);
+app.use('/api/v1/amenities', amenityRoutes);
+app.use('/api/v1/predictions', predictionRoutes);
+
+// Use routes (Mobile) - API v1
+app.use('/api/v1/m', mobileRoutes);
 
 /**
  * @swagger

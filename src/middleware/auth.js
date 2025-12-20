@@ -43,6 +43,39 @@ const auth = async (req, res, next) => {
   }
 };
 
+// Optional authentication - doesn't fail if no token, but sets req.user if valid token exists
+const optionalAuth = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization?.replace('Bearer ', '');
+
+    if (!token) {
+      return next();
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    const user = await prisma.user.findUnique({
+      where: { id: decoded.userId },
+      select: {
+        id: true,
+        email: true,
+        name: true,
+        role: true,
+        isActive: true,
+      },
+    });
+
+    if (user && user.isActive) {
+      req.user = user;
+    }
+
+    next();
+  } catch (error) {
+    // Token invalid but we don't fail - just continue without user
+    next();
+  }
+};
+
 const authorize = (...roles) => {
   return (req, res, next) => {
     if (!req.user) {
@@ -63,4 +96,4 @@ const authorize = (...roles) => {
   };
 };
 
-module.exports = { auth, authorize };
+module.exports = { auth, optionalAuth, authorize };
