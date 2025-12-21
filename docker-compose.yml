@@ -1,5 +1,4 @@
-version: '3.8'
-
+# Docker Compose Configuration for Rentverse Backend
 services:
   # Rentverse Backend Application
   app:
