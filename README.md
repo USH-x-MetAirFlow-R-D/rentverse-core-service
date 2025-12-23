@@ -41,7 +41,8 @@ docker-compose up -d --build
 Proses ini akan menjalankan:
 1.  🐘 **Database**: PostgreSQL dengan PostGIS port `5432` (internal)
 2.  📱 **Backend API**: Node.js server port `3000`
-3.  🔄 **Proxy**: Caddy server (opsional)
+3.  � **Prisma Studio**: Database GUI port `5555`
+4.  �🔄 **Proxy**: Caddy server (opsional)
 
 ### 4. Verifikasi
 
@@ -49,6 +50,7 @@ Setelah semua container berjalan (status `healthy`):
 
 - **API Health Check**: [http://localhost:3000/health](http://localhost:3000/health)
 - **Dokumentasi API (Swagger)**: [http://localhost:3000/docs](http://localhost:3000/docs)
+- **Database GUI (Prisma Studio)**: [http://localhost:5555](http://localhost:5555)
 
 ### 🖐️ Menghentikan Aplikasi
 

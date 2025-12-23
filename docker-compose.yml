@@ -115,6 +115,27 @@ services:
       retries: 3
       start_period: 10s
 
+  # Prisma Studio (Database GUI)
+  studio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rentverse-studio
+    command: sh -c "npx prisma studio --port 5555 --hostname 0.0.0.0"
+    user: root
+    ports:
+      - "5555:5555"
+    env_file:
+      - .env
+    environment:
+      # Force connection to the docker database service
+      - DATABASE_URL=postgresql://rentverse:rentverse@db:5432/rentverse?schema=public
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - rentverse-network
+
 # Networks
 networks:
   rentverse-network:
