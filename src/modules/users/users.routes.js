@@ -81,7 +81,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/users:
+ * /api/v1/users:
  *   post:
  *     summary: Create a new user (Admin only)
  *     tags: [Users]
@@ -206,7 +206,7 @@ router.post(
 );
 /**
  * @swagger
- * /api/users/profile:
+ * /api/v1/users/profile:
  *   get:
  *     summary: Get current user's profile
  *     tags: [Users]
@@ -234,7 +234,7 @@ router.get('/profile', auth, usersController.getProfile);
 
 /**
  * @swagger
- * /api/users/profile:
+ * /api/v1/users/profile:
  *   patch:
  *     summary: Update current user's profile
  *     tags: [Users]
@@ -340,7 +340,7 @@ router.patch(
 );
 /**
  * @swagger
- * /api/users:
+ * /api/v1/users:
  *   get:
  *     summary: Get all users (Admin only)
  *     tags: [Users]
@@ -402,7 +402,7 @@ router.get('/', auth, authorize('ADMIN'), usersController.getAllUsers);
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/v1/users/{id}:
  *   get:
  *     summary: Get user by ID
  *     tags: [Users]
@@ -441,7 +441,7 @@ router.get('/:id', auth, usersController.getUserById);
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/v1/users/{id}:
  *   patch:
  *     summary: Update user by ID (partial update)
  *     tags: [Users]
@@ -521,7 +521,7 @@ router.patch(
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/v1/users/{id}:
  *   delete:
  *     summary: Delete user by ID (Admin only)
  *     tags: [Users]

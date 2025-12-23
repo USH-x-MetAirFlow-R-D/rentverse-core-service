@@ -58,7 +58,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/property-types:
+ * /api/v1/property-types:
  *   get:
  *     summary: Get all property types
  *     tags: [PropertyTypes]
@@ -115,7 +115,7 @@ router.get('/', propertyTypesController.getAll);
 
 /**
  * @swagger
- * /api/property-types/{id}:
+ * /api/v1/property-types/{id}:
  *   get:
  *     summary: Get property type by ID
  *     tags: [PropertyTypes]
@@ -147,7 +147,7 @@ router.get('/:id', propertyTypesController.getById);
 
 /**
  * @swagger
- * /api/property-types:
+ * /api/v1/property-types:
  *   post:
  *     summary: Create a new property type
  *     tags: [PropertyTypes]
@@ -237,7 +237,7 @@ router.post(
 
 /**
  * @swagger
- * /api/property-types/{id}:
+ * /api/v1/property-types/{id}:
  *   put:
  *     summary: Update property type by ID
  *     tags: [PropertyTypes]
@@ -329,7 +329,7 @@ router.put(
 
 /**
  * @swagger
- * /api/property-types/{id}:
+ * /api/v1/property-types/{id}:
  *   delete:
  *     summary: Delete property type by ID
  *     tags: [PropertyTypes]

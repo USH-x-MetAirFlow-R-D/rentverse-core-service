@@ -1,6 +1,6 @@
 /**
  * Mobile Routes Index
- * All mobile API routes are prefixed with /api/m/
+ * All mobile API routes are prefixed with /api/v1/m/
  */
 
 const express = require('express');
@@ -26,7 +26,7 @@ router.use('/upload', uploadRoutes);
 
 /**
  * @swagger
- * /api/m:
+ * /api/v1/m:
  *   get:
  *     summary: Mobile API Welcome endpoint
  *     tags: [Mobile - General]
@@ -67,7 +67,7 @@ router.get('/', (req, res) => {
 
 /**
  * @swagger
- * /api/m/health:
+ * /api/v1/m/health:
  *   get:
  *     summary: Mobile API Health check
  *     tags: [Mobile - General]

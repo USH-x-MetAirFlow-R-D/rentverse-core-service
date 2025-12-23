@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/m/property-types:
+ * /api/v1/m/property-types:
  *   get:
  *     summary: Get all property types (Mobile)
  *     tags: [Mobile - Property Types]
@@ -81,7 +81,7 @@ router.get('/', async (req, res) => {
 
 /**
  * @swagger
- * /api/m/property-types/{id}:
+ * /api/v1/m/property-types/{id}:
  *   get:
  *     summary: Get property type by ID (Mobile)
  *     tags: [Mobile - Property Types]

@@ -57,7 +57,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/bookings:
+ * /api/v1/bookings:
  *   post:
  *     summary: Create a new booking
  *     tags: [Bookings]
@@ -134,7 +134,7 @@ router.post(
 
 /**
  * @swagger
- * /api/bookings/my-bookings:
+ * /api/v1/bookings/my-bookings:
  *   get:
  *     summary: Get user's bookings (as tenant)
  *     tags: [Bookings]
@@ -164,7 +164,7 @@ router.get('/my-bookings', auth, bookingsController.getUserBookings);
 
 /**
  * @swagger
- * /api/bookings/owner-bookings:
+ * /api/v1/bookings/owner-bookings:
  *   get:
  *     summary: Get owner's bookings (as landlord)
  *     tags: [Bookings]
@@ -200,7 +200,7 @@ router.get('/owner-bookings', auth, bookingsController.getOwnerBookings);
 
 /**
  * @swagger
- * /api/bookings/property/{propertyId}/booked-periods:
+ * /api/v1/bookings/property/{propertyId}/booked-periods:
  *   get:
  *     summary: Get property booked periods (for calendar)
  *     tags: [Bookings]
@@ -234,7 +234,7 @@ router.get(
 
 /**
  * @swagger
- * /api/bookings/{id}:
+ * /api/v1/bookings/{id}:
  *   get:
  *     summary: Get booking details by ID
  *     tags: [Bookings]
@@ -261,7 +261,7 @@ router.get('/:id', auth, bookingsController.getBookingById);
 
 /**
  * @swagger
- * /api/bookings/{id}/approve:
+ * /api/v1/bookings/{id}/approve:
  *   post:
  *     summary: Approve booking (owner only)
  *     tags: [Bookings]
@@ -299,7 +299,7 @@ router.post('/:id/approve', auth, bookingsController.approveBooking);
 
 /**
  * @swagger
- * /api/bookings/{id}/reject:
+ * /api/v1/bookings/{id}/reject:
  *   post:
  *     summary: Reject booking (owner only)
  *     tags: [Bookings]
@@ -340,7 +340,7 @@ router.post('/:id/reject', auth, bookingsController.rejectBooking);
 
 /**
  * @swagger
- * /api/bookings/{id}/rental-agreement:
+ * /api/v1/bookings/{id}/rental-agreement:
  *   get:
  *     summary: Get rental agreement PDF for a booking
  *     tags: [Bookings]
@@ -410,7 +410,7 @@ router.get(
 
 /**
  * @swagger
- * /api/bookings/{id}/rental-agreement/download:
+ * /api/v1/bookings/{id}/rental-agreement/download:
  *   get:
  *     summary: Download rental agreement PDF file
  *     description: Securely download the actual PDF file for a booking with proper authentication

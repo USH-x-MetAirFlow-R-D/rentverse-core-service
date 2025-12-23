@@ -199,7 +199,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/properties:
+ * /api/v1/properties:
  *   get:
  *     summary: Get all properties
  *     tags: [Properties]
@@ -397,7 +397,7 @@ router.get('/', propertiesController.getAllProperties);
 
 /**
  * @swagger
- * /api/properties/featured:
+ * /api/v1/properties/featured:
  *   get:
  *     summary: Get featured properties (most recently updated properties with pagination)
  *     tags: [Properties]
@@ -449,7 +449,7 @@ router.get('/featured', propertiesController.getFeaturedProperties);
 
 /**
  * @swagger
- * /api/properties/favorites:
+ * /api/v1/properties/favorites:
  *   get:
  *     summary: Get user's favorite properties
  *     tags: [Properties]
@@ -508,7 +508,7 @@ router.get('/favorites', auth, propertyViewsController.getUserFavorites);
 
 /**
  * @swagger
- * /api/properties/property/{code}:
+ * /api/v1/properties/property/{code}:
  *   get:
  *     summary: Get property by code/slug (public access)
  *     tags: [Properties]
@@ -541,7 +541,7 @@ router.get('/property/:code', propertiesController.getPropertyByCode);
 
 /**
  * @swagger
- * /api/properties.geojson:
+ * /api/v1/properties.geojson:
  *   get:
  *     summary: Get property data in GeoJSON format for high-performance map rendering
  *     tags: [Properties]
@@ -647,7 +647,7 @@ router.get('/geojson', propertiesController.getGeoJSON);
 
 /**
  * @swagger
- * /api/properties/{id}:
+ * /api/v1/properties/{id}:
  *   get:
  *     summary: Get property by ID
  *     tags: [Properties]
@@ -730,7 +730,7 @@ router.get('/geojson', propertiesController.getGeoJSON);
 
 /**
  * @swagger
- * /api/properties/my-properties:
+ * /api/v1/properties/my-properties:
  *   get:
  *     summary: Get properties owned by the authenticated user
  *     tags: [Properties]
@@ -850,7 +850,7 @@ router.get('/:id', propertiesController.getPropertyById);
 
 /**
  * @swagger
- * /api/properties:
+ * /api/v1/properties:
  *   post:
  *     summary: Create a new property (Landlord/Admin only)
  *     tags: [Properties]
@@ -1065,7 +1065,7 @@ router.post(
 
 /**
  * @swagger
- * /api/properties/{id}:
+ * /api/v1/properties/{id}:
  *   put:
  *     summary: Update property by ID
  *     tags: [Properties]
@@ -1255,7 +1255,7 @@ router.put(
 
 /**
  * @swagger
- * /api/properties/{id}:
+ * /api/v1/properties/{id}:
  *   delete:
  *     summary: Delete property by ID
  *     tags: [Properties]
@@ -1299,7 +1299,7 @@ router.delete(
 
 /**
  * @swagger
- * /api/properties/{id}/view:
+ * /api/v1/properties/{id}/view:
  *   post:
  *     summary: Log property view for analytics
  *     tags: [Properties]
@@ -1348,7 +1348,7 @@ router.post('/:id/view', propertyViewsController.logView);
 
 /**
  * @swagger
- * /api/properties/{id}/view-stats:
+ * /api/v1/properties/{id}/view-stats:
  *   get:
  *     summary: Get property view statistics (Owner/Admin only)
  *     tags: [Properties]
@@ -1420,7 +1420,7 @@ router.get(
 
 /**
  * @swagger
- * /api/properties/{id}/rating:
+ * /api/v1/properties/{id}/rating:
  *   post:
  *     summary: Create or update property rating (Authenticated users only)
  *     tags: [Properties]
@@ -1499,7 +1499,7 @@ router.post(
 
 /**
  * @swagger
- * /api/properties/{id}/rating:
+ * /api/v1/properties/{id}/rating:
  *   delete:
  *     summary: Delete user's rating for property (Authenticated users only)
  *     tags: [Properties]
@@ -1537,7 +1537,7 @@ router.delete('/:id/rating', auth, propertyViewsController.deleteRating);
 
 /**
  * @swagger
- * /api/properties/{id}/ratings:
+ * /api/v1/properties/{id}/ratings:
  *   get:
  *     summary: Get property ratings with pagination
  *     tags: [Properties]
@@ -1621,7 +1621,7 @@ router.get('/:id/ratings', propertyViewsController.getPropertyRatings);
 
 /**
  * @swagger
- * /api/properties/{id}/my-rating:
+ * /api/v1/properties/{id}/my-rating:
  *   get:
  *     summary: Get current user's rating for property (Authenticated users only)
  *     tags: [Properties]
@@ -1675,7 +1675,7 @@ router.get('/:id/my-rating', auth, propertyViewsController.getUserRating);
 
 /**
  * @swagger
- * /api/properties/{id}/rating-stats:
+ * /api/v1/properties/{id}/rating-stats:
  *   get:
  *     summary: Get detailed rating statistics for property
  *     tags: [Properties]
@@ -1741,7 +1741,7 @@ router.get('/:id/rating-stats', propertyViewsController.getRatingStats);
 
 /**
  * @swagger
- * /api/properties/{id}/favorite:
+ * /api/v1/properties/{id}/favorite:
  *   post:
  *     summary: Toggle property favorite status (add/remove from favorites)
  *     tags: [Properties]
@@ -1795,7 +1795,7 @@ router.post('/:id/favorite', auth, propertyViewsController.toggleFavorite);
 
 /**
  * @swagger
- * /api/properties/{id}/favorite-status:
+ * /api/v1/properties/{id}/favorite-status:
  *   get:
  *     summary: Get property favorite status for current user
  *     tags: [Properties]
@@ -1848,7 +1848,7 @@ router.get(
 
 /**
  * @swagger
- * /api/properties/{id}/favorite-stats:
+ * /api/v1/properties/{id}/favorite-stats:
  *   get:
  *     summary: Get property favorite statistics (public)
  *     tags: [Properties]
@@ -1896,7 +1896,7 @@ router.get(
  *       404:
 /**
  * @swagger
- * /api/properties/{id}/favorite-stats:
+ * /api/v1/properties/{id}/favorite-stats:
  *   get:
  *     summary: Get favorite statistics for a property
  *     tags: [Properties]
@@ -1922,7 +1922,7 @@ router.get('/:id/favorite-stats', propertyViewsController.getFavoriteStats);
 
 /**
  * @swagger
- * /api/properties/{id}/approve:
+ * /api/v1/properties/{id}/approve:
  *   post:
  *     summary: Approve a property (Admin only)
  *     tags: [Properties]
@@ -1963,7 +1963,7 @@ router.post(
 
 /**
  * @swagger
- * /api/properties/{id}/reject:
+ * /api/v1/properties/{id}/reject:
  *   post:
  *     summary: Reject a property (Admin only)
  *     tags: [Properties]
@@ -2008,7 +2008,7 @@ router.post(
 
 /**
  * @swagger
- * /api/properties/{id}/approval-history:
+ * /api/v1/properties/{id}/approval-history:
  *   get:
  *     summary: Get approval history for a property
  *     tags: [Properties]
@@ -2039,7 +2039,7 @@ router.get(
 
 /**
  * @swagger
- * /api/properties/auto-approve/toggle:
+ * /api/v1/properties/auto-approve/toggle:
  *   post:
  *     summary: Toggle property auto-approve status (Admin only)
  *     tags: [Properties - Auto Approve]
@@ -2103,7 +2103,7 @@ router.post(
 
 /**
  * @swagger
- * /api/properties/auto-approve/status:
+ * /api/v1/properties/auto-approve/status:
  *   get:
  *     summary: Get property auto-approve status
  *     tags: [Properties - Auto Approve]
@@ -2149,7 +2149,7 @@ router.get(
 
 /**
  * @swagger
- * /api/properties/fix-approval-inconsistency:
+ * /api/v1/properties/fix-approval-inconsistency:
  *   post:
  *     summary: Fix approval data inconsistency (Admin only)
  *     tags: [Properties - Admin]

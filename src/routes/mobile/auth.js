@@ -96,7 +96,7 @@ router.use(passport.initialize());
 
 /**
  * @swagger
- * /api/m/auth/register:
+ * /api/v1/m/auth/register:
  *   post:
  *     summary: Register a new user (Mobile)
  *     tags: [Mobile - Auth]
@@ -218,7 +218,7 @@ router.post(
 
 /**
  * @swagger
- * /api/m/auth/login:
+ * /api/v1/m/auth/login:
  *   post:
  *     summary: Login user (Mobile)
  *     tags: [Mobile - Auth]
@@ -330,7 +330,7 @@ router.post(
 
 /**
  * @swagger
- * /api/m/auth/me:
+ * /api/v1/m/auth/me:
  *   get:
  *     summary: Get current user profile (Mobile)
  *     tags: [Mobile - Auth]
@@ -418,7 +418,7 @@ router.get('/me', async (req, res) => {
 
 /**
  * @swagger
- * /api/m/auth/refresh-token:
+ * /api/v1/m/auth/refresh-token:
  *   post:
  *     summary: Refresh JWT token (Mobile)
  *     tags: [Mobile - Auth]
@@ -503,7 +503,7 @@ router.post('/refresh-token', async (req, res) => {
 
 /**
  * @swagger
- * /api/m/auth/google:
+ * /api/v1/m/auth/google:
  *   post:
  *     summary: Authenticate with Google (Mobile)
  *     tags: [Mobile - Auth]
@@ -620,7 +620,7 @@ router.post('/google', async (req, res) => {
 
 /**
  * @swagger
- * /api/m/auth/apple:
+ * /api/v1/m/auth/apple:
  *   post:
  *     summary: Authenticate with Apple (Mobile)
  *     tags: [Mobile - Auth]

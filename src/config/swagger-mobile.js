@@ -7,7 +7,7 @@ const swaggerMobileOptions = {
       title: 'Rentverse Mobile API',
       version: '1.0.0',
       description:
-        'Mobile API documentation for Rentverse application. Endpoint prefix: /api/m/',
+        'Mobile API documentation for Rentverse application. Endpoint prefix: /api/v1/m/',
       contact: {
         name: 'API Support',
         email: 'support@rentverse.com',

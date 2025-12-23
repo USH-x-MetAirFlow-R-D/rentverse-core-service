@@ -36,7 +36,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/amenities/categories:
+ * /api/v1/amenities/categories:
  *   get:
  *     summary: Get all amenity categories
  *     tags: [Amenities]
@@ -61,7 +61,7 @@ router.get('/categories', amenitiesController.getCategories);
 
 /**
  * @swagger
- * /api/amenities:
+ * /api/v1/amenities:
  *   get:
  *     summary: Get all amenities
  *     tags: [Amenities]
@@ -123,7 +123,7 @@ router.get('/', amenitiesController.getAll);
 
 /**
  * @swagger
- * /api/amenities/{id}:
+ * /api/v1/amenities/{id}:
  *   get:
  *     summary: Get amenity by ID
  *     tags: [Amenities]
@@ -155,7 +155,7 @@ router.get('/:id', amenitiesController.getById);
 
 /**
  * @swagger
- * /api/amenities:
+ * /api/v1/amenities:
  *   post:
  *     summary: Create a new amenity
  *     tags: [Amenities]
@@ -217,7 +217,7 @@ router.post(
 
 /**
  * @swagger
- * /api/amenities/{id}:
+ * /api/v1/amenities/{id}:
  *   put:
  *     summary: Update amenity by ID
  *     tags: [Amenities]
@@ -285,7 +285,7 @@ router.put(
 
 /**
  * @swagger
- * /api/amenities/{id}:
+ * /api/v1/amenities/{id}:
  *   delete:
  *     summary: Delete amenity by ID
  *     tags: [Amenities]

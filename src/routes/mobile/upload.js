@@ -18,7 +18,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/m/upload/single:
+ * /api/v1/m/upload/single:
  *   post:
  *     summary: Upload a single file (Mobile)
  *     tags: [Mobile - Upload]
@@ -79,7 +79,7 @@ router.post('/single', auth, uploadSingle, handleUploadError, (req, res) =>
 
 /**
  * @swagger
- * /api/m/upload/multiple:
+ * /api/v1/m/upload/multiple:
  *   post:
  *     summary: Upload multiple files (Mobile)
  *     tags: [Mobile - Upload]
@@ -130,7 +130,7 @@ router.post('/multiple', auth, uploadMultiple, handleUploadError, (req, res) =>
 
 /**
  * @swagger
- * /api/m/upload/profile-picture:
+ * /api/v1/m/upload/profile-picture:
  *   post:
  *     summary: Upload profile picture (Mobile)
  *     tags: [Mobile - Upload]

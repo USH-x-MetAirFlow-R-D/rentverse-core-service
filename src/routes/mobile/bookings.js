@@ -14,7 +14,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/m/bookings:
+ * /api/v1/m/bookings:
  *   get:
  *     summary: Get user's bookings (Mobile)
  *     tags: [Mobile - Bookings]
@@ -121,7 +121,7 @@ router.get('/', auth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/bookings/{id}:
+ * /api/v1/m/bookings/{id}:
  *   get:
  *     summary: Get booking by ID (Mobile)
  *     tags: [Mobile - Bookings]
@@ -228,7 +228,7 @@ router.get('/:id', auth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/bookings:
+ * /api/v1/m/bookings:
  *   post:
  *     summary: Create a new booking (Mobile)
  *     tags: [Mobile - Bookings]
@@ -428,7 +428,7 @@ router.post(
 
 /**
  * @swagger
- * /api/m/bookings/{id}/cancel:
+ * /api/v1/m/bookings/{id}/cancel:
  *   post:
  *     summary: Cancel a booking (Mobile)
  *     tags: [Mobile - Bookings]
@@ -525,7 +525,7 @@ router.post('/:id/cancel', auth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/bookings/{id}/approve:
+ * /api/v1/m/bookings/{id}/approve:
  *   post:
  *     summary: Approve a booking (Owner only) (Mobile)
  *     tags: [Mobile - Bookings]
@@ -619,7 +619,7 @@ router.post('/:id/approve', auth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/bookings/{id}/reject:
+ * /api/v1/m/bookings/{id}/reject:
  *   post:
  *     summary: Reject a booking (Owner only) (Mobile)
  *     tags: [Mobile - Bookings]

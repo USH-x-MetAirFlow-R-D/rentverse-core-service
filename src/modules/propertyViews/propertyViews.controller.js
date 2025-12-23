@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator');
 class PropertyViewsController {
   /**
    * Log property view
-   * POST /api/properties/:id/view
+   * POST /api/v1/properties/:id/view
    */
   async logView(req, res) {
     try {
@@ -61,7 +61,7 @@ class PropertyViewsController {
 
   /**
    * Get property view statistics
-   * GET /api/properties/:id/view-stats
+   * GET /api/v1/properties/:id/view-stats
    */
   async getViewStats(req, res) {
     try {
@@ -102,7 +102,7 @@ class PropertyViewsController {
 
   /**
    * Create or update property rating
-   * POST /api/properties/:id/rating
+   * POST /api/v1/properties/:id/rating
    */
   async createOrUpdateRating(req, res) {
     try {
@@ -164,7 +164,7 @@ class PropertyViewsController {
 
   /**
    * Get property ratings
-   * GET /api/properties/:id/ratings
+   * GET /api/v1/properties/:id/ratings
    */
   async getPropertyRatings(req, res) {
     try {
@@ -201,7 +201,7 @@ class PropertyViewsController {
 
   /**
    * Get user's rating for a property
-   * GET /api/properties/:id/my-rating
+   * GET /api/v1/properties/:id/my-rating
    */
   async getUserRating(req, res) {
     try {
@@ -237,7 +237,7 @@ class PropertyViewsController {
 
   /**
    * Delete user's rating
-   * DELETE /api/properties/:id/rating
+   * DELETE /api/v1/properties/:id/rating
    */
   async deleteRating(req, res) {
     try {
@@ -278,7 +278,7 @@ class PropertyViewsController {
 
   /**
    * Get detailed rating statistics
-   * GET /api/properties/:id/rating-stats
+   * GET /api/v1/properties/:id/rating-stats
    */
   async getRatingStats(req, res) {
     try {
@@ -315,7 +315,7 @@ class PropertyViewsController {
 
   /**
    * Toggle property favorite status
-   * POST /api/properties/:id/favorite
+   * POST /api/v1/properties/:id/favorite
    */
   async toggleFavorite(req, res) {
     try {
@@ -354,7 +354,7 @@ class PropertyViewsController {
 
   /**
    * Get user's favorite properties
-   * GET /api/properties/favorites
+   * GET /api/v1/properties/favorites
    */
   async getUserFavorites(req, res) {
     try {
@@ -384,7 +384,7 @@ class PropertyViewsController {
 
   /**
    * Get property favorite status
-   * GET /api/properties/:id/favorite-status
+   * GET /api/v1/properties/:id/favorite-status
    */
   async getFavoriteStatus(req, res) {
     try {
@@ -421,7 +421,7 @@ class PropertyViewsController {
 
   /**
    * Get property favorite statistics
-   * GET /api/properties/:id/favorite-stats
+   * GET /api/v1/properties/:id/favorite-stats
    */
   async getFavoriteStats(req, res) {
     try {

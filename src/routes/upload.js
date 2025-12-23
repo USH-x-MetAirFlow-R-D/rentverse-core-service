@@ -67,7 +67,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/upload/single:
+ * /api/v1/upload/single:
  *   post:
  *     summary: Upload a single file with auto WebP/WebM conversion
  *     tags: [Upload]
@@ -108,7 +108,7 @@ router.post(
 
 /**
  * @swagger
- * /api/upload/multiple:
+ * /api/v1/upload/multiple:
  *   post:
  *     summary: Upload multiple files with auto WebP/WebM conversion
  *     tags: [Upload]
@@ -159,7 +159,7 @@ router.post(
 
 /**
  * @swagger
- * /api/upload/property-images:
+ * /api/v1/upload/property-images:
  *   post:
  *     summary: Upload property images with thumbnails
  *     tags: [Upload]
@@ -217,7 +217,7 @@ router.post(
 
 /**
  * @swagger
- * /api/upload/avatar:
+ * /api/v1/upload/avatar:
  *   post:
  *     summary: Upload user avatar
  *     tags: [Upload]
@@ -266,7 +266,7 @@ router.post(
 
 /**
  * @swagger
- * /api/upload/delete/{publicId}:
+ * /api/v1/upload/delete/{publicId}:
  *   delete:
  *     summary: Delete a file from Cloudinary
  *     tags: [Upload]
@@ -302,7 +302,7 @@ router.delete('/delete/:publicId', auth, uploadController.deleteFile);
 
 /**
  * @swagger
- * /api/upload/delete-multiple:
+ * /api/v1/upload/delete-multiple:
  *   delete:
  *     summary: Delete multiple files from Cloudinary
  *     tags: [Upload]
@@ -332,7 +332,7 @@ router.delete('/delete-multiple', auth, uploadController.deleteMultipleFiles);
 
 /**
  * @swagger
- * /api/upload/video-thumbnail/{publicId}:
+ * /api/v1/upload/video-thumbnail/{publicId}:
  *   get:
  *     summary: Get video thumbnail URL
  *     tags: [Upload]

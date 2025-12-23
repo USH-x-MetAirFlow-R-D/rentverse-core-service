@@ -15,7 +15,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/m/users/profile:
+ * /api/v1/m/users/profile:
  *   get:
  *     summary: Get current user profile (Mobile)
  *     tags: [Mobile - Users]
@@ -86,7 +86,7 @@ router.get('/profile', auth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/users/profile:
+ * /api/v1/m/users/profile:
  *   put:
  *     summary: Update current user profile (Mobile)
  *     tags: [Mobile - Users]
@@ -194,7 +194,7 @@ router.put(
 
 /**
  * @swagger
- * /api/m/users/change-password:
+ * /api/v1/m/users/change-password:
  *   post:
  *     summary: Change user password (Mobile)
  *     tags: [Mobile - Users]
@@ -292,7 +292,7 @@ router.post(
 
 /**
  * @swagger
- * /api/m/users/favorites:
+ * /api/v1/m/users/favorites:
  *   get:
  *     summary: Get user's favorite properties (Mobile)
  *     tags: [Mobile - Users]
@@ -372,7 +372,7 @@ router.get('/favorites', auth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/users/bookings:
+ * /api/v1/m/users/bookings:
  *   get:
  *     summary: Get user's bookings (Mobile)
  *     tags: [Mobile - Users]

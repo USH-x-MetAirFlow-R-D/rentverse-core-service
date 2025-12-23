@@ -13,7 +13,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/m/properties:
+ * /api/v1/m/properties:
  *   get:
  *     summary: Get all properties with filters (Mobile)
  *     tags: [Mobile - Properties]
@@ -256,7 +256,7 @@ router.get('/', optionalAuth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/properties/{id}:
+ * /api/v1/m/properties/{id}:
  *   get:
  *     summary: Get property by ID (Mobile)
  *     tags: [Mobile - Properties]
@@ -399,7 +399,7 @@ router.get('/:id', optionalAuth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/properties/{id}/favorite:
+ * /api/v1/m/properties/{id}/favorite:
  *   post:
  *     summary: Toggle favorite property (Mobile)
  *     tags: [Mobile - Properties]
@@ -488,7 +488,7 @@ router.post('/:id/favorite', auth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/properties/{id}/rate:
+ * /api/v1/m/properties/{id}/rate:
  *   post:
  *     summary: Rate a property (Mobile)
  *     tags: [Mobile - Properties]
@@ -584,7 +584,7 @@ router.post('/:id/rate', auth, async (req, res) => {
 
 /**
  * @swagger
- * /api/m/properties/nearby:
+ * /api/v1/m/properties/nearby:
  *   get:
  *     summary: Get nearby properties (Mobile)
  *     tags: [Mobile - Properties]

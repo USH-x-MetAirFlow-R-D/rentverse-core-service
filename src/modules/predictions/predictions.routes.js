@@ -37,7 +37,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/predictions/status:
+ * /api/v1/predictions/status:
  *   get:
  *     summary: Get current prediction service status
  *     tags: [Predictions]
@@ -66,7 +66,7 @@ router.get('/status', auth, predictionsController.getStatus);
 
 /**
  * @swagger
- * /api/predictions/toggle:
+ * /api/v1/predictions/toggle:
  *   post:
  *     summary: Toggle prediction service ON/OFF (Admin only)
  *     tags: [Predictions]
@@ -126,7 +126,7 @@ router.post(
 
 /**
  * @swagger
- * /api/predictions/predict:
+ * /api/v1/predictions/predict:
  *   post:
  *     summary: Predict property price (Proxy to AI model)
  *     tags: [Predictions]

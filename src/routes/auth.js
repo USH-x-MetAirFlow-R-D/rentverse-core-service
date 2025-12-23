@@ -96,7 +96,7 @@ router.use(passport.initialize());
 
 /**
  * @swagger
- * /api/auth/register:
+ * /api/v1/auth/register:
  *   post:
  *     summary: Register a new user
  *     tags: [Authentication]
@@ -216,7 +216,7 @@ router.post(
 
 /**
  * @swagger
- * /api/auth/login:
+ * /api/v1/auth/login:
  *   post:
  *     summary: Login user
  *     tags: [Authentication]
@@ -306,7 +306,7 @@ router.post(
 
 /**
  * @swagger
- * /api/auth/me:
+ * /api/v1/auth/me:
  *   get:
  *     summary: Get current user profile
  *     tags: [Authentication]
@@ -369,7 +369,7 @@ router.get('/me', async (req, res) => {
 
 /**
  * @swagger
- * /api/auth/check-email:
+ * /api/v1/auth/check-email:
  *   post:
  *     summary: Check if email exists in the system
  *     tags: [Authentication]
@@ -468,7 +468,7 @@ router.post(
 
 /**
  * @swagger
- * /api/auth/google:
+ * /api/v1/auth/google:
  *   get:
  *     summary: Initiate Google OAuth login
  *     tags: [Authentication]
@@ -485,7 +485,7 @@ router.get(
 
 /**
  * @swagger
- * /api/auth/google/callback:
+ * /api/v1/auth/google/callback:
  *   get:
  *     summary: Google OAuth callback
  *     tags: [Authentication]
@@ -528,7 +528,7 @@ router.get(
 
 /**
  * @swagger
- * /api/auth/facebook:
+ * /api/v1/auth/facebook:
  *   get:
  *     summary: Initiate Facebook OAuth login
  *     tags: [Authentication]
@@ -545,7 +545,7 @@ router.get(
 
 /**
  * @swagger
- * /api/auth/facebook/callback:
+ * /api/v1/auth/facebook/callback:
  *   get:
  *     summary: Facebook OAuth callback
  *     tags: [Authentication]
@@ -588,7 +588,7 @@ router.get(
 
 /**
  * @swagger
- * /api/auth/github:
+ * /api/v1/auth/github:
  *   get:
  *     summary: Initiate GitHub OAuth login
  *     tags: [Authentication]
@@ -605,7 +605,7 @@ router.get(
 
 /**
  * @swagger
- * /api/auth/github/callback:
+ * /api/v1/auth/github/callback:
  *   get:
  *     summary: GitHub OAuth callback
  *     tags: [Authentication]
@@ -648,7 +648,7 @@ router.get(
 
 /**
  * @swagger
- * /api/auth/twitter:
+ * /api/v1/auth/twitter:
  *   get:
  *     summary: Initiate Twitter OAuth login
  *     tags: [Authentication]
@@ -660,7 +660,7 @@ router.get('/twitter', passport.authenticate('twitter'));
 
 /**
  * @swagger
- * /api/auth/twitter/callback:
+ * /api/v1/auth/twitter/callback:
  *   get:
  *     summary: Twitter OAuth callback
  *     tags: [Authentication]
@@ -703,7 +703,7 @@ router.get(
 
 /**
  * @swagger
- * /api/auth/apple:
+ * /api/v1/auth/apple:
  *   post:
  *     summary: Apple Sign In authentication
  *     tags: [Authentication]
@@ -785,7 +785,7 @@ router.post('/apple', async (req, res) => {
 
 /**
  * @swagger
- * /api/auth/oauth/link:
+ * /api/v1/auth/oauth/link:
  *   post:
  *     summary: Link OAuth account to existing user
  *     tags: [Authentication]
@@ -899,7 +899,7 @@ router.post('/oauth/link', async (req, res) => {
 
 /**
  * @swagger
- * /api/auth/oauth/unlink:
+ * /api/v1/auth/oauth/unlink:
  *   post:
  *     summary: Unlink OAuth account from user
  *     tags: [Authentication]

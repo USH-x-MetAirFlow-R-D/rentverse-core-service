@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/m/amenities:
+ * /api/v1/m/amenities:
  *   get:
  *     summary: Get all amenities (Mobile)
  *     tags: [Mobile - Amenities]
@@ -85,7 +85,7 @@ router.get('/', async (req, res) => {
 
 /**
  * @swagger
- * /api/m/amenities/categories:
+ * /api/v1/m/amenities/categories:
  *   get:
  *     summary: Get all amenity categories (Mobile)
  *     tags: [Mobile - Amenities]
